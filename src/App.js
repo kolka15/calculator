@@ -168,7 +168,7 @@ class App extends Component {
             <div className="App">
                 <div className="App__container">
                     <div className="App__screen-container">
-                        <input type="text" readOnly="true" placeholder="0" className="App__screen"
+                        <input dir="rtl" type="text" readOnly="true" placeholder="0" className="App__screen"
                                value={this.state.display}>
                         </input>
                         <div className="App__operator">
