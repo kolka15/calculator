@@ -20,8 +20,9 @@ class App extends Component {
     };
     
     componentWillMount = () => {
+        let storage = window.localStorage.getItem('log');
         this.setState({
-            log: JSON.parse(window.localStorage.getItem('log'))
+            log: storage ? JSON.parse(storage) : []
         });
     };
     
