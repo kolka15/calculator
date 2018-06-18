@@ -4,7 +4,7 @@ import './App.css';
 let getTime = () => {
     let date = new Date();
     let dateString = date.toString().split(' ');
-    let month = ("0" + (date.getMonth() + 1)).slice(-2);
+    let month = ('0' + (date.getMonth() + 1)).slice(-2);
     return `${dateString[3]}-${month}-${dateString[2]} ${dateString[4]}`;
 };
 
@@ -17,6 +17,12 @@ class App extends Component {
         iteration: '1',
         display: '',
         log: [],
+    };
+    
+    componentWillMount = () => {
+        this.setState({
+            log: JSON.parse(localStorage.getItem('log'))
+        });
     };
     
     clickHandler = (e) => {
@@ -49,7 +55,10 @@ class App extends Component {
                 
                 this.setState(prevState => ({
                     log: [...prevState.log, log]
-                }));
+                }),()=> {
+                    localStorage.setItem('log', JSON.stringify(this.state.log));
+                });
+                
                 this.setState({
                     display: result(),
                     result: result(),
@@ -144,6 +153,8 @@ class App extends Component {
                 }
         }
     };
+    
+    
     
     render() {
         let template = [{name: 'AC', val: 'AC'}, {name: '±', val: '±'}, {name: '%', val: '%'},
