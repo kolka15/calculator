@@ -187,7 +187,7 @@ class App extends Component {
                 </div>
                 <div className="App__log">
                     История операций:
-                    {this.state.log.map((item, i) => {
+                    {this.state.log && this.state.log.map((item, i) => {
                         return (
                             <div key={i} className='App__log-row' dangerouslySetInnerHTML={{__html: item}}/>
                         );
