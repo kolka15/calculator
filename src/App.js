@@ -21,7 +21,7 @@ class App extends Component {
     
     componentWillMount = () => {
         this.setState({
-            log: JSON.parse(localStorage.getItem('log'))
+            log: JSON.parse(window.localStorage.getItem('log'))
         });
     };
     
@@ -56,7 +56,7 @@ class App extends Component {
                 this.setState(prevState => ({
                     log: [...prevState.log, log]
                 }),()=> {
-                    localStorage.setItem('log', JSON.stringify(this.state.log));
+                    window.localStorage.setItem('log', JSON.stringify(this.state.log));
                 });
                 
                 this.setState({
